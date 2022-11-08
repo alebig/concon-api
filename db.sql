@@ -1,0 +1,13 @@
+ CREATE DATABASE concon
+    CHARACTER SET UTF8;
+--
+USE concon;
+--
+CREATE TABLE registracion (
+    record_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    producto TINYINT UNSIGNED NOT NULL,
+    uni_med  TINYINT UNSIGNED NOT NULL,
+    fecha_registro  DATETIME NOT NULL,
+    cantidad  SMALLINT UNSIGNED NOT NULL,
+    PRIMARY KEY (record_id)
+)   ENGINE=InnoDB;
