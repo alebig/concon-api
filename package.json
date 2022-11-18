@@ -6,7 +6,8 @@
   "scripts": {
     "babel-node": "babel-node --presets=@babel/preset-env",
     "dev": "nodemon --exec npm run babel-node src/index.js",
-    "start": "npm run babel-node src/index.js"
+    "start": "npm run babel-node src/index.js",
+    "start2": "npm run src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,6 @@
     "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.20"
   }
 }
