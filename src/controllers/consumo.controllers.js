@@ -1,14 +1,14 @@
-import { conectarBD } from '../database/database';
+import { pool } from '../database/database.js';  // conectarDB
 
 const getConsumo = async (req, res) => {
     try {
-        const conexion = await conectarBD();
-        const leido = await conexion.query('SELECT * FROM registracion');
+//        const conexion = await pool();
+        const [leido] = await pool.query('SELECT * FROM registracion');
         res.json(leido);        
     } catch (error) {
-        res.status(500);
-        res.send(error.message)
-    }
+        console.log("Error en la lectura de la BD")
+        return res.status(500).json({message: "Error en la lectura de la BD"});
+   }
 };
 
 const addConsumo = async (req, res) => {
@@ -21,14 +21,14 @@ const addConsumo = async (req, res) => {
                             uni_med,
                             fecha_registro,
                             cantidad }
-        const conexion = await conectarBD();
-        const graba = await conexion.query('INSERT INTO registracion SET ?', registro);
-        console.log(`Id ${graba.insertId} Agregado OK`); 
-        const nuevoId = graba.insertId
+//        const conexion = await pool();
+        const graba = await pool.query('INSERT INTO registracion SET ?', registro);
+        const nuevoId = graba[0].insertId
+        console.log(nuevoId)
         res.json(nuevoId);
     } catch (error) {
-        res.status(500);
-        res.send(error.message)
+        console.log("Error al intentar grabar un nuevo registro")
+        return res.status(500).json({message: "Error al intentar grabar un nuevo registro"});
     }
 };
 
@@ -43,26 +43,26 @@ const chgConsumo = async (req, res) => {
                             uni_med,
                             fecha_registro,
                             cantidad }
-        const conexion = await conectarBD();
-        await conexion.query('UPDATE registracion SET ? WHERE record_id = ?', [registro, id]);
+//        const conexion = await pool();
+        await pool.query('UPDATE registracion SET ? WHERE record_id = ?', [registro, id]);
         console.log(`Registro ${ id } actualizado ok`);
         res.json(`Registro ${ id } actualizado ok`)   
     } catch (error) {
-        res.status(500);
-        res.send(error.message)
+        console.log("Error al intentar grabar una modificación")
+        return res.status(500).json({message: "Error al intentar grabar una modificación"});
     }
 };
 
 const delConsumo = async (req, res) => {
     try {
         const { id } = req.params;
-        const conexion = await conectarBD();
-        await conexion.query('DELETE FROM registracion WHERE record_id = ?', id);
+//        const conexion = await pool();
+        await pool.query('DELETE FROM registracion WHERE record_id = ?', id);
         console.log(`Registro ${ id } eliminado`);                
         res.json(`Registro ${ id } eliminado`);
     } catch (error) {
-        res.status(500);
-        res.send(error.message)
+        console.log("Error al eliminar un registro")
+        return res.status(500).json({message: "Error al eliminar un registro"});
     }
 };
 
