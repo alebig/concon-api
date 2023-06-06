@@ -48,7 +48,7 @@ const chgConsumo = async (req, res) => {
         console.log(`Registro ${ id } actualizado ok`);
         res.json(`Registro ${ id } actualizado ok`)   
     } catch (error) {
-        console.log("Error al intentar grabar una modificación")
+        console.log(`Error al intentar grabar una modificación al registro ${ id }`)
         return res.status(500).json({message: "Error al intentar grabar una modificación"});
     }
 };
