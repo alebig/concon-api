@@ -1,3 +1,9 @@
 node_modules
 db.sql
 .env
+.env.*
+.env*
+
+.flaskenv*
+!.env.project
+!.env.vault

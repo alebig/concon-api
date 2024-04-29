@@ -1,4 +1,5 @@
-import { config } from 'dotenv';
+// import { config } from 'dotenv';
+import { config } from '@dotenvx/dotenvx';
 
 config();
 

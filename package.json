@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node --presets=@babel/preset-env",
-    "dev": "nodemon --exec npm run babel-node src/index.js",
+    "dev": "DOTENV_KEY='dotenv://:key_6393199d424b675f25f343532d1702a8b44c0dd582fb777dc2767485ff2503f7@dotenv.local/vault/.env.vault?environment=dev' dotenvx run -- nodemon --exec npm run babel-node src/index.js",
     "start": "npm run babel-node src/index.js",
     "start2": "npm run src/index.js"
   },
