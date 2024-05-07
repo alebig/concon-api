@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { methods as consumoController } from '../controllers/consumo.controllers';
+import { methods as consumoController } from '../controllers/consumo.controllers.js';
 
 const router = Router();
 

@@ -1,8 +1,9 @@
+//type="module";
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 // Routes
-import routes from './routes/consumo.routes'
+import routes from './routes/consumo.routes.js'
 
 const app = express();
 

@@ -4,19 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel-node": "babel-node --presets=@babel/preset-env",
-    "dev": "DOTENV_KEY='dotenv://:key_6393199d424b675f25f343532d1702a8b44c0dd582fb777dc2767485ff2503f7@dotenv.local/vault/.env.vault?environment=dev' dotenvx run -- nodemon --exec npm run babel-node src/index.js",
-    "start": "npm run babel-node src/index.js",
-    "start2": "npm run src/index.js"
+    "dev": "dotenvx run --env-file=.env.dev -- nodemon --exec npm run babel-node src/index.js",
+    "start": "dotenvx run --env-file=.env.prod -- pm2 start src/index.js --name ccon-api"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dotenvx/dotenvx": "^0.37.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3"
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7",
+    "pm2": "5.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
@@ -24,6 +23,7 @@
     "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.20"
-  }
+    "nodemon": "^3.1.0"
+  },
+  "type": "module"
 }

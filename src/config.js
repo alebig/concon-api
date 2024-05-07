@@ -1,7 +1,7 @@
 // import { config } from 'dotenv';
-import { config } from '@dotenvx/dotenvx';
+//import { config } from '@dotenvx/dotenvx';
 
-config();
+//config();
 
     export const PORT = process.env.PORT
     export const DB_PORT = process.env.DB_PORT
