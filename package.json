@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "dotenvx run --env-file=.env.dev -- nodemon --exec npm run babel-node src/index.js",
-    "start": "dotenvx run --env-file=.env.prod -- pm2 start src/index.js --name ccon-api"
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "dev": "dotenvx run --env-file=.env.vault -- nodemon --exec npm run babel-node src/index.js --env dev",
+    "start": "dotenvx run --env-file=.env.vault -- pm2 start src/index.js --name concon-api"
   },
   "keywords": [],
   "author": "",

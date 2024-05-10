@@ -1,4 +1,4 @@
-//type="module";
+import { PORT } from "./config.js";
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -7,7 +7,7 @@ import routes from './routes/consumo.routes.js'
 
 const app = express();
 
-app.set('port', process.env.PORT || 4038);
+app.set('port', PORT || 4038);
 
 app.use(cors({
     allowedHeaders: "*",
