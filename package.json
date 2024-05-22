@@ -6,7 +6,8 @@
   "scripts": {
     "babel-node": "babel-node --presets=@babel/preset-env",
     "dev": "dotenvx run --env-file=.env.vault -- nodemon --exec npm run babel-node src/index.js --env dev",
-    "start": "dotenvx run --env-file=.env.vault -- pm2 start src/index.js --name concon-api"
+    "start": "dotenvx run --env-file=.env.vault -- pm2 start src/index.js --name concon-api",
+    "start2": "dotenvx run --env-file=.env.vault -- npm run babel-node src/index.js"
   },
   "keywords": [],
   "author": "",
