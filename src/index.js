@@ -1,5 +1,5 @@
 import app from './app.js';
-import './config.js';
+import './config.js'; // unneded import?
 
 const main = () => {
     app.listen(app.get('port'));
