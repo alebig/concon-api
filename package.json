@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "babel-node": "babel-node --presets=@babel/preset-env",
-    "dev": "dotenvx run --env-file=.env.vault -- nodemon --exec npm run babel-node src/index.js --env dev",
-    "start": "dotenvx run --env-file=.env.vault -- pm2 start src/index.js --name concon-api",
-    "start2": "dotenvx run --env-file=.env.vault -- npm run babel-node src/index.js"
+    "dev": "dotenvx run -- nodemon --exec npm run babel-node src/index.js",
+    "start": "dotenvx run -- pm2 start src/index.js --name concon-api",
+    "start2": "dotenvx run -- node src/index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dotenvx/dotenvx": "^0.38.0",
+    "@dotenvx/dotenvx": "^0.44.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
